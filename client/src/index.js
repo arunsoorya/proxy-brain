@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { createMuiTheme } from '@material-ui/core/styles';
+import * as serviceWorker from './serviceWorker'; 
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import muiTheme from './css/theme.js';
+import muiTheme from './css/theme.js'; 
+ 
 ReactDOM.render(<MuiThemeProvider theme={muiTheme}>
      <App /></MuiThemeProvider>,
       document.getElementById('root'));

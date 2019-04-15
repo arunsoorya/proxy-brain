@@ -31,9 +31,20 @@
     }
 }
 
+.homePageContentDate {
+    display: flex;
+    padding: 10px; 
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.homeTitle {
+    /* margin-top: 20px; */
+}
 .homePageContent {
     display: flex;
-    padding: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
     flex-direction: column;
 }
 

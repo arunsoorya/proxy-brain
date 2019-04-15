@@ -1,18 +1,20 @@
 {
   "name": "proxybrain",
-  "version": "0.1.0", 
-  
+  "version": "0.1.0",
   "dependencies": {
+    "@date-io/date-fns": "^1.1.0",
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
-    "material-ui-next-pickers": "0.0.20",
+    "date-fns": "2.0.0-alpha.27",
+    "material-ui-pickers": "^2.2.4",
+    "notistack": "^0.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4021 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -26,5 +28,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://localhost:4005/"
+  "proxy": "http://localhost:4020/"
 }

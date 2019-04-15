@@ -1,8 +1,7 @@
 import React, {
   Component
 } from 'react';
-import './App.css';
-import PropTypes from 'prop-types';
+import './App.css'; 
 import {
   withStyles
 } from '@material-ui/core/styles';
@@ -12,10 +11,32 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import HomePage from './components/HomePage.js';
 import AppStyles from './styles/AppStyle.js'
+import Snackbar from '@material-ui/core/Snackbar';
+import Slide from '@material-ui/core/Slide';
+
+function TransitionUp(props) {
+  return <Slide {...props} direction="up" />;
+}
 
 class App extends Component {
+  state = {
+    open: false,
+    Transition: null,
+    message : ''
+  };
+  handleClick = Transition => () => {
+    this.setState({ open: true, Transition });
+  };
 
+  showMessage = (message)=>{
+    this.setState({ message : message, open: true, Transition :TransitionUp});
+ 
+  }
+  handleClose = () => {
+    this.setState({ open: false });
+  };
   render() {
+   
     
     const { classes } = this.props;
     return ( 
@@ -31,8 +52,18 @@ class App extends Component {
         </Toolbar>
       </AppBar>
       <div className={classes.content}>
-      <HomePage />
+      <HomePage showMessageKey = {this.showMessage} />
       </div>
+      <Snackbar
+      bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
+          open={this.state.open}
+          onClose={this.handleClose}
+          TransitionComponent={this.state.Transition}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">{this.state.message}</span>}
+        />
     </div> 
     );
   }
