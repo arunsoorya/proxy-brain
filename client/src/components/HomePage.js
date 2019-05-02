@@ -70,11 +70,8 @@ class HomePage extends Component {
             }
         }
         await fetch('/note/save', request)
-            .then(res => res.json())
-            .then(res => {
-                this
-                    .props
-                    .showMessageKey("Note Saved")
+            // .then(res => res.json())
+            .then(res => { this.props.showMessageKey("Note Saved")
                 console.log("--->", res);
             })
     }

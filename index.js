@@ -11,7 +11,7 @@ const methodOverride = require('method-override')
 const app = expresslib()
 
 
-const port = 4021
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`connected to port ${port}`)
 })
