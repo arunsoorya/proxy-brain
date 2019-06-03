@@ -1,0 +1,48 @@
+version: "3"
+services:
+    api:
+        # image: mhart/alpine-node:11.1.0
+        container_name: api
+        restart: always
+        ports:
+            - "9001:9000"
+        volumes:
+            - ./api:/api
+        build: ./api 
+        links:
+            - mongo
+        # networks:
+            # - webappnetwork
+        # tty: true
+        # command: nodemon /api/index.js
+    client:
+        # image: mhart/alpine-node:11.1.0
+        container_name: client
+        restart: always
+        ports:
+            - "9002:3000"
+        build: ./client 
+        # working_dir: /client/src/app
+        volumes:
+            - ./client:/client/src
+        links:
+            - api
+        networks:
+            - webappnetwork
+        tty: true
+    mongo:
+        image: mongo
+        restart: always
+        container_name: mongo
+        # volumes:
+            # - ./data-node:/data/db
+        ports:
+            - 27017:27017
+        # command: mongod --noauth --smallfiles
+        # networks:
+            # - webappnetwork
+    
+    
+networks: 
+    webappnetwork:
+        driver: bridge
